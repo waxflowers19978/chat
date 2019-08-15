@@ -1,0 +1,12 @@
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#flexbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+}

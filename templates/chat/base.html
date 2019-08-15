@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>chat</title>
+    <link href="{% static 'chat/base.css' %}" rel="stylesheet">
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+  <br>
+  <br>
+  あなたはUSER Aです。
+  <a href='/chat/'>HOME</a><br><br>
+  <hr>
+  <div id='flexbox'>
+    {% block main %}
+    {% endblock %}
+  </div>
+</body>
+</html>

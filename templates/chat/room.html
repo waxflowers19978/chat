@@ -1,0 +1,27 @@
+
+
+{% extends 'chat/base.html' %}
+{% load static %}
+{% block css %}
+  <link href="{% static 'chat/room.css' %}" rel="stylesheet">
+{% endblock %}
+{% block main %}
+  <div id='message_box'>
+    {% for message in message_list%}
+      {% if message.0 == '0' %}
+        <p id='right'>{{ message|slice:"19:" }}</p>
+      {% else %}
+        <p id='left'>{{ message|slice:"19:" }}</p>
+      {% endif %}
+    {% endfor %}
+    <hr>
+    <div id='send'>
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" name="message_text">
+        <input type="submit" value="送信する">
+        <input type="reset" value="リセット">
+      </form>
+    </div>
+  </div>
+{%endblock%}
