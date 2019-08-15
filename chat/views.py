@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.contrib.auth.models import User
 
 
@@ -49,5 +50,33 @@ def room(request, room_name):
     }
     return render(request, 'chat/room.html', params)
 
+
+def message(request):
+    redis = Redis()
+    room_name = request.GET.get('room_name')
+    my_id, other_id = room_name.split('_')
+    key = get_key(room_name)
+    message_list = redis.get_message(key)
+    params = {
+        'message_list': message_list,
+        'my_id': my_id,
+    }
+
+    return render(request, 'chat/message.html', params)
+
+
 def ajax(request):
-    return render(request, 'chat/ajax.html')
+    import datetime
+    now = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+    params = {
+        'now': now,
+    }
+    return render(request, 'chat/ajax.html', params)
+
+def response(request):
+    import datetime
+    now = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+    params = {
+        'now': now,
+    }
+    return render(request, 'chat/response.html', params)

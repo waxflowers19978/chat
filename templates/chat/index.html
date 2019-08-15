@@ -4,7 +4,7 @@
 <div>
   <!-- <a href='/chat/talk/1_2'>yasuki</a><br> -->
   {% for message_user in user_list %}
-    
+
     <a href="javascript:void(0);" onclick="OnLinkClick({{ user.id }}, {{ message_user.id }});">
       {{ message_user }}
     </a>

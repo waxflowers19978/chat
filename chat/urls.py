@@ -10,8 +10,10 @@ urlpatterns = [
     path('index', views.index, name = 'index'),
     # path('index/', views.index, name = 'index'),
     path('talk/<str:room_name>/', views.room, name='room'),
+    path('message/', views.message, name='message'),
     path('', views.home, name='home'),
     path('login/', auth_views.LoginView.as_view(template_name='chat/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('ajax', views.ajax, name = 'ajax'),
+    path('ajax/', views.ajax, name = 'ajax'),
+    path("response/", views.response, name='response'),
 ]
