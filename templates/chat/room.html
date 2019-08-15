@@ -11,25 +11,34 @@
       &nbsp;&nbsp;&nbsp;&lt;&lt;&lt;&nbsp;&nbsp;{{ other_name }}
     </div>
     <div id='message'>
-      {% for message in message_list%}
-        {% if message.0 == my_id %}
-          <div id='right'>
-            <p>
-              {{ message|slice:"13:15"}}:
-              {{ message|slice:"16:18"}}
-            </p>
-            {{ message|slice:"19:"}}
-          </div>
-        {% else %}
-          <div id='left'>
-            <p>
-              {{ message|slice:"13:15"}}:
-              {{ message|slice:"16:18"}}
-            </p>
-            {{ message|slice:"19:"}}
-          </div>
-        {% endif %}
-      {% endfor %}
+      {% if message_list %}
+
+        {% for message in message_list%}
+          {% if message.0 == my_id %}
+            <div id='right'>
+              <p>
+                {{ message|slice:"13:15"}}:
+                {{ message|slice:"16:18"}}
+              </p>
+              {{ message|slice:"19:"}}
+            </div>
+          {% else %}
+            <div id='left'>
+              <p>
+                {{ message|slice:"13:15"}}:
+                {{ message|slice:"16:18"}}
+              </p>
+              {{ message|slice:"19:"}}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p style='margin-bottom:200px; font-size:25px;'>
+          {{ other_name }}さんと<br>
+          メッセージしてみよう！
+        </p>
+      {% endif %}
+
     </div>
     <div id='send'>
       <form method="post">

@@ -48,3 +48,6 @@ def room(request, room_name):
         'other_name':other_name,
     }
     return render(request, 'chat/room.html', params)
+
+def ajax(request):
+    return render(request, 'chat/ajax.html')
