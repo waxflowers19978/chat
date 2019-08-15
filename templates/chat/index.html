@@ -2,8 +2,23 @@
 
 {% block main %}
 <div>
-  <a href='/chat/0_1'>USER B</a><br>
-  <a href='/chat/0_2'>USER C</a><br>
-  <a href='/chat/0_3'>USER D</a><br>
+  <!-- <a href='/chat/talk/1_2'>yasuki</a><br> -->
+  {% for message_user in user_list %}
+    
+    <a href="javascript:void(0);" onclick="OnLinkClick({{ user.id }}, {{ message_user.id }});">
+      {{ message_user }}
+    </a>
+    <br>
+  {% endfor %}
 </div>
 {%endblock%}
+
+{% block js %}
+<script>
+  function OnLinkClick(user_id, message_user_id) {
+    message_url = user_id + '_' + message_user_id;
+    window.location.href = '/chat/talk/' + message_url;
+    return false;
+  }
+</script>
+{% endblock %}

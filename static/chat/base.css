@@ -4,6 +4,13 @@ body {
   padding: 0;
 }
 
+#flex {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #flexbox {
   width: 100%;
   display: flex;

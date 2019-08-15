@@ -1,22 +1,74 @@
 
 #message_box {
-  border: 1px solid black;
+  margin-top: 20px;
+  border: 3px solid black;
   width: 400px;
-}
-
-#left {
-  text-align: left;
-  padding-left: 10px;
+  height: 500px;
+  position: relative;
 }
 
 #right {
-  text-align: right;
+  margin: 0 0 0 auto;
+  background-color: #00DD00;
+}
+
+#right p {
+  position: absolute;
+  top: -25px;
+  right: 7px;
+  width: auto;
+  height: 30px;
+}
+
+#left {
+  margin: 0 auto 0 0;
+  background-color: #EEEEEE;
+}
+
+#left p {
+  position: absolute;
+  top: -25px;
+  left: 7px;
+  width: auto;
+  height: 30px;
+}
+
+#right, #left {
+  max-width: 200px;
+  width: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+#message_header {
+  width: 100%;
+  border-bottom: 1px black solid;
+  height: 25px;
+}
+
+#message {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 445px;
+  overflow: scroll;
+  font-size: 10px;
+  padding-left: 10px;
   padding-right: 10px;
+  background-color: #BAD3FF;
+  /* border: 1px solid red; */
 }
 
 #send {
   display: flex;
   justify-content: center;
-  padding-bottom: 10px;
-  /* border: red 3px solid; */
+  /* align-items: center; */
+  /* padding-bottom: 10px; */
+  border-top: black 1px solid;
+  position: absolute;
+  bottom: 4px;
+  left: 0px;
+  width: 100%;
+  height: 25px;
 }
